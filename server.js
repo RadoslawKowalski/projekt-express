@@ -23,7 +23,7 @@ app.post("/handleForm", function (req, res) {
     console.log("adsfads " + users)
     for (let i = 0; i < users.length; i++) {
         if (req.body.login == users[i].login) {
-            console.log("user already exists")
+            // console.log("user already exists")
             res.send("This user already exists!")
             break;
         }
@@ -66,6 +66,11 @@ app.get("/admin", function (req, res) {
     } else {
         res.sendFile(path.join(__dirname + "/static/adminFalse.html"))
     }
+})
+
+app.get("/logout", function (req, res) {
+    logged = false;
+    res.send("Logged out")
 })
 
 let tF = "<table>"
